@@ -1,20 +1,37 @@
-public class Customer {
+public class Customer extends Person {
+    private int CustomerNumber;
+    private boolean IsMailingList;
 
-    //fields
-    private int    customerID;
-    private String accountName;
-    private double balance;
-
-    //constructor, takes 3 parameters
-    public Customer(int id, String name, double bal) {
-        customerID  = id;
-        accountName = name;
-        balance     = bal;
+    public void setCustomerNumber(int customerNumber) {
+        CustomerNumber = customerNumber;
     }
 
-    public void display() {
-        System.out.println("Customer ID: " + customerID);
-        System.out.println("Account Name: " + accountName);
-        System.out.println("Balance: $" + balance);
+    public int getCustomerNumber() {
+        return CustomerNumber;
+    }
+
+    public void setMailingList(boolean mailingList) {
+        IsMailingList = mailingList;
+    }
+
+    public String getMailingList() {
+        String str;
+        if (IsMailingList == true)
+            str = "Yes";
+        else
+            str = "No";
+        return str;
+
+    }
+
+    @Override
+    public String toString() {
+        return "Person:" +
+			"\nName: " + getName() +
+			"\nAddress: " + getAddress() +
+			"\nPhone: " + getPhone() +
+			"\nBirtday: " + getBirtday() +
+			"\nCustomerNumber: " + CustomerNumber +
+			"\nMailingList: " + getMailingList();
     }
 }
